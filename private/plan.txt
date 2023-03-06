@@ -1,0 +1,14 @@
+Website loads with a form
+input city into form
+input area into form
+
+display weather from external database (not mine)
+
+if a report has been stored in database
+    display report
+
+prompt user if they want to create/edit the report
+when save button is pressed
+    send report to database alongside the date
+
+repeat if city and area are changed from previous search

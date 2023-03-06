@@ -15,6 +15,10 @@ if (!isset($settings)) die();
   <body>
       <div class="content">
         <span class="title"><?php echo $content["title"] ?></span>
+        <form class="weather-form">
+          <input type="text" name="city" placeholder="City">
+          <input type="submit" value="Search">
+        </form>
       </div>
   </body>
 </html>
