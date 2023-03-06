@@ -1,5 +1,5 @@
 # Welsh Bacc Project
-## Database Interaction
+Database Interaction
 
 ## Instructions
 Need XAMPP and running Apache
