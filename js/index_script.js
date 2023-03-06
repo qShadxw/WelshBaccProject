@@ -10,7 +10,7 @@ function submitLocation() {
 
     let city = document.getElementById("weather-form-city").value;
     let xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "/private/submit.php?city=".city, true);
+    xmlhttp.open("POST", "/private/submit.php?city="+city, true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
