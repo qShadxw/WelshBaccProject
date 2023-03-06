@@ -17,7 +17,7 @@ if (!isset($settings)) die();
       <div class="content">
         <span class="title"><?php echo $content["title"] ?></span>
         <div class="weather-form">
-          <input type="text" name="city" placeholder="City"></input>
+          <input type="text" id="weather-form-city" name="city" placeholder="City"></input>
           <input type="button" id="submit" value="Search"></input>
       </div>
       </div>
