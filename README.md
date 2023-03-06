@@ -3,5 +3,9 @@ Database Interaction
 
 ## Instructions
 Need XAMPP and running Apache
-- `npm i`
-- `npm start`
+```
+git clone https://github.com/qShadxw/WelshBaccProject/
+cd WelshBaccProject
+npm i
+npm start
+```
