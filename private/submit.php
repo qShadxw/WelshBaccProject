@@ -1,8 +1,14 @@
 <?php
+// Importants
 $apiKey = "48697636dc984d3a7e4b10eb28a1415a";
+
+/* API REQUESTS */
+
+// Variables from index_script.js
 $city = ucfirst($_GET["city"]);
 $cityApiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=". $city ."&limit=5&appid=". $apiKey;
 
+// Api request for city longitude and latitude
 $curl = curl_init();
 curl_setopt_array($curl, array(
     CURLOPT_URL => $cityApiUrl,
@@ -19,16 +25,20 @@ curl_setopt_array($curl, array(
     ),
   ));
 
+// Response
 $response = curl_exec($curl);
 $err = curl_error($curl);
 
+// Error Handling
 if ($err) {
     echo "cURL Error #:" . $err;
     return;
 }
 
+// Closes Curl
 curl_close($curl);
 
+// Decodes the response into a json object
 $cityData = json_decode($response, true);
 
 if (sizeof($cityData) <= 1) {
@@ -40,6 +50,7 @@ if (sizeof($cityData) <= 1) {
     return;
 }
 
+// Api request for weather data
 $weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=".$cityData[1]["lat"]."&lon=".$cityData[1]["lon"]."&appid=".$apiKey;
 
 $curl = curl_init();
@@ -58,20 +69,26 @@ curl_setopt_array($curl, array(
     ),
 ));
 
+// Response
 $response = curl_exec($curl);
 $err = curl_error($curl);
 
 curl_close($curl);
 
+// Error Handling
 if ($err) {
     echo "cURL Error #:" . $err;
     return;
 }
 
+// Decodes the response into separate variables for html output
 $weatherData = json_decode($response, true);
 $weatherTemp = round($weatherData["main"]["temp"] - 273.15);
 $weatherDesc = ucfirst($weatherData["weather"][0]["description"]);
 
+/* REPORT */
+
+// Html output
 echo '
     <span class="report">
         <span class="title">Report</span>
