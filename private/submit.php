@@ -1,4 +1,10 @@
 <?php
+// Imports
+require_once __DIR__ . "/private/settings.php";
+
+// Checks [[ WILL MOVE LATER ]]
+if (!isset($pdo)) die();
+
 // Importants
 $apiKey = "48697636dc984d3a7e4b10eb28a1415a";
 

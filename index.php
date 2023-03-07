@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/private/settings.php";
+require_once __DIR__ . "/setup.php";
 if (!isset($settings)) die();
 ?>
 <!DOCTYPE html>
