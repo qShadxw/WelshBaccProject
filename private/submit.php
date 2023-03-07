@@ -87,13 +87,18 @@ $weatherTemp = round($weatherData["main"]["temp"] - 273.15);
 $weatherDesc = ucfirst($weatherData["weather"][0]["description"]);
 
 /* REPORT */
+$report = "Placeholder Text";
 
 // Html output
 echo '
-    <span class="report">
-        <span class="title">Report</span>
+    <span class="weather">
+        <span class="title">Weather</span>
         <span class="text">City: '. $city .'</span>
         <span class="text">Temperature: '. $weatherTemp .'°c</span>
         <span class="text">Description: '. $weatherDesc .'</span>
+    </span>
+    <span class="report">
+        <span class="title">Report</span>
+        <span class="text">'. $report .'</span>
     </span>
 ';

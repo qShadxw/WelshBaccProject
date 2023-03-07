@@ -28,11 +28,26 @@ body {
     padding-top: 25px;
 }
 
-.content .report {
+.content .weather {
     display: flex;
     flex-direction: column;
     color: white;
     padding-top: 50px;
+}
+
+.content .weather .title {
+    font-size: 3em;
+}
+
+.content .weather .text {
+    font-size: 1.2em;
+}
+
+.content .report {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding-top: 25px;
 }
 
 .content .report .title {
