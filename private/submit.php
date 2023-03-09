@@ -1,18 +1,16 @@
 <?php
 // Imports
 require_once __DIR__ . "/private/settings.php";
+require_once __DIR__ . "/private/private_info.php";
 
 // Checks [[ WILL MOVE LATER ]]
 if (!isset($pdo)) die();
-
-// Importants
-$apiKey = "48697636dc984d3a7e4b10eb28a1415a";
 
 /* API REQUESTS */
 
 // Variables from index_script.js
 $city = ucfirst($_GET["city"]);
-$cityApiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=". $city ."&limit=5&appid=". $apiKey;
+$cityApiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=". $city ."&limit=5&appid=". $weathermap_apikey;
 
 // Api request for city longitude and latitude
 $curl = curl_init();
@@ -27,7 +25,7 @@ curl_setopt_array($curl, array(
     CURLOPT_CUSTOMREQUEST => "GET",
     CURLOPT_HTTPHEADER => array(
       "x-rapidapi-host: community-open-weather-map.p.rapidapi.com",
-      "x-rapidapi-key: ". $apiKey,
+      "x-rapidapi-key: ". $weathermap_apikey,
     ),
   ));
 
@@ -57,7 +55,7 @@ if (sizeof($cityData) <= 1) {
 }
 
 // Api request for weather data
-$weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=".$cityData[1]["lat"]."&lon=".$cityData[1]["lon"]."&appid=".$apiKey;
+$weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=".$cityData[1]["lat"]."&lon=".$cityData[1]["lon"]."&appid=".$weathermap_apikey;
 
 $curl = curl_init();
 curl_setopt_array($curl, array(
